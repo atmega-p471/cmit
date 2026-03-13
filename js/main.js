@@ -7,26 +7,77 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
   });
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.08 });
-
-  document.querySelectorAll('.pillar-card,.mini-card,.skill-item,.contact-card,.news-card,.course-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity .5s ease, transform .5s ease, border-color .3s ease';
-    observer.observe(el);
-  });
+  initReveal();
+  initCardReveal();
 
   if (document.getElementById('home-news-grid')) loadHomeNews();
   if (document.getElementById('home-courses-grid')) loadHomeCourses();
 });
+
+function initReveal() {
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal, .reveal-left').forEach((el, i) => {
+    const delay = (i % 4) * 80;
+    el.style.transitionDelay = delay + 'ms';
+    revealObserver.observe(el);
+  });
+
+  const counterObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const el = e.target;
+        const target = parseInt(el.dataset.count, 10);
+        const suffix = el.dataset.suffix || '';
+        if (!isNaN(target)) animateCounter(el, target, suffix);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.stat-num[data-count]').forEach(el => counterObserver.observe(el));
+}
+
+function animateCounter(el, target, suffix) {
+  const duration = 1400;
+  const start = performance.now();
+  const easeOut = t => 1 - Math.pow(1 - t, 3);
+
+  function step(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const value = Math.round(easeOut(progress) * target);
+    el.innerHTML = value + '<span>' + suffix + '</span>';
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+function initCardReveal() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.07 });
+
+  document.querySelectorAll('.pillar-card,.mini-card,.skill-item,.contact-card,.news-card,.course-card').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(22px)';
+    el.style.transition = `opacity .55s ease ${(i % 4) * 80}ms, transform .55s ease ${(i % 4) * 80}ms, border-color .3s ease, box-shadow .3s ease`;
+    obs.observe(el);
+  });
+}
 
 async function loadHomeNews() {
   const grid = document.getElementById('home-news-grid');
@@ -101,11 +152,11 @@ function triggerObserver(els) {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; obs.unobserve(e.target); }
     });
-  }, { threshold: 0.08 });
-  els.forEach(el => {
+  }, { threshold: 0.07 });
+  els.forEach((el, i) => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity .5s ease, transform .5s ease, border-color .3s ease';
+    el.style.transform = 'translateY(22px)';
+    el.style.transition = `opacity .55s ease ${i * 80}ms, transform .55s ease ${i * 80}ms, border-color .3s ease, box-shadow .3s ease`;
     obs.observe(el);
   });
 }

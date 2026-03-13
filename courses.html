@@ -9,56 +9,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    .courses-toolbar {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-    }
-    .search-box {
-      flex: 1;
-      min-width: 220px;
-      max-width: 380px;
-      position: relative;
-    }
-    .search-box input {
-      width: 100%;
-      background: var(--dark3);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 10px;
-      padding: 11px 16px 11px 40px;
-      color: var(--white);
-      font-size: .9rem;
-      font-family: inherit;
-      outline: none;
-      transition: border-color var(--transition);
-    }
-    .search-box input:focus { border-color: var(--blue); }
-    .search-box input::placeholder { color: var(--gray); }
-    .search-box::before {
-      content: '🔍';
-      position: absolute;
-      left: 12px; top: 50%;
-      transform: translateY(-50%);
-      font-size: .85rem;
-      pointer-events: none;
-    }
-    .courses-count { color: var(--gray); font-size: .88rem; white-space: nowrap; }
-
-    /* free badge */
     .free-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(34,197,94,.12);
-      border: 1px solid rgba(34,197,94,.3);
-      color: #4ade80;
+      background: #dcfce7;
+      border: 1.5px solid #86efac;
+      color: #166534;
       font-size: .8rem;
       font-weight: 700;
       padding: 6px 16px;
       border-radius: 50px;
-      margin-top: 16px;
+      margin-top: 18px;
     }
   </style>
 </head>
@@ -90,7 +52,7 @@
 </div>
 
 <!-- ─── COURSES LIST ─── -->
-<section style="background: var(--dark);">
+<section style="background: var(--bg2);">
   <div class="courses-toolbar">
     <div class="search-box">
       <input type="text" id="courses-search" placeholder="Поиск по курсам…" />

@@ -32,6 +32,15 @@
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
+
+  <div class="hero-deco" aria-hidden="true">
+    <div class="hero-deco-ring"></div>
+    <div class="hero-deco-icon">⚙️</div>
+    <div class="hero-deco-dot"></div>
+    <div class="hero-deco-dot"></div>
+    <div class="hero-deco-dot"></div>
+  </div>
+
   <div>
     <div class="hero-content">
       <div class="badge fade-up">⚡ ЦМИТ — Центр молодёжного инновационного творчества</div>
@@ -48,11 +57,11 @@
     </div>
     <div class="hero-stats fade-up delay-4">
       <div class="stat">
-        <div class="stat-num">1–2<span>г.</span></div>
+        <div class="stat-num" data-count="2" data-suffix="г.">1–2<span>г.</span></div>
         <div class="stat-label">до уровня специалиста</div>
       </div>
       <div class="stat">
-        <div class="stat-num">100<span>%</span></div>
+        <div class="stat-num" data-count="100" data-suffix="%">100<span>%</span></div>
         <div class="stat-label">бесплатно для учеников</div>
       </div>
       <div class="stat">
@@ -66,7 +75,7 @@
 <!-- ─── ABOUT ─── -->
 <section id="about">
   <div class="about-grid">
-    <div>
+    <div class="reveal-left">
       <span class="section-label">О нас</span>
       <h2 class="section-title">Что такое ЦМИТ?</h2>
       <div class="about-text">
@@ -76,22 +85,22 @@
       </div>
     </div>
     <div class="about-cards">
-      <div class="mini-card">
+      <div class="mini-card reveal">
         <div class="icon">🏭</div>
         <h4>Реальное производство</h4>
         <p>Постоянное взаимодействие с ПАО СЭЗ им. Серго Орджоникидзе</p>
       </div>
-      <div class="mini-card">
+      <div class="mini-card reveal">
         <div class="icon">🎯</div>
         <h4>Практические задачи</h4>
         <p>Работа над реальными проектами предприятия, а не учебными примерами</p>
       </div>
-      <div class="mini-card">
+      <div class="mini-card reveal">
         <div class="icon">🎓</div>
         <h4>Целевое направление</h4>
         <p>Поступление в СГТУ с гарантированным трудоустройством</p>
       </div>
-      <div class="mini-card">
+      <div class="mini-card reveal">
         <div class="icon">🤝</div>
         <h4>Наставники-практики</h4>
         <p>Молодые профессионалы, выросшие в нашем центре и работающие на предприятии</p>
@@ -102,24 +111,27 @@
 
 <!-- ─── PILLARS ─── -->
 <section id="pillars">
-  <div class="section-header">
+  <div class="section-header reveal">
     <span class="section-label">Наши направления</span>
     <h2 class="section-title">Три кита ЦМИТ</h2>
     <p class="section-sub">Комплексный подход, который превращает школьника в востребованного специалиста</p>
   </div>
   <div class="pillars-grid">
-    <div class="pillar-card">
-      <div class="pillar-icon">🧠</div>
+    <div class="pillar-card reveal">
+      <span class="pillar-num">01</span>
+      <span class="pillar-icon">🧠</span>
       <h3>Наставничество</h3>
       <p>Умеешь сам — научи другого. Принцип наставничества, при котором обучая других, начинаешь глубже понимать своё дело. Все наставники выросли в нашем центре — они молоды и говорят на одном языке со школьниками.</p>
     </div>
-    <div class="pillar-card">
-      <div class="pillar-icon">📚</div>
+    <div class="pillar-card reveal">
+      <span class="pillar-num">02</span>
+      <span class="pillar-icon">📚</span>
       <h3>Обучение</h3>
       <p>Авторские программы на базе опыта крупного промышленного предприятия и современных методик. Позволяют стать востребованным специалистом за 1–2 года. Теория и практика в идеальном балансе.</p>
     </div>
-    <div class="pillar-card">
-      <div class="pillar-icon">🛡️</div>
+    <div class="pillar-card reveal">
+      <span class="pillar-num">03</span>
+      <span class="pillar-icon">🛡️</span>
       <h3>Сопровождение</h3>
       <p>Сопровождаем на всех этапах: от школы до вуза, от вуза до предприятия и в первые рабочие годы. Помощь, консультации и коллективный разум нашего сообщества всегда рядом.</p>
     </div>
@@ -129,7 +141,7 @@
 <!-- ─── SKILLS ─── -->
 <section id="skills">
   <div class="skills-layout">
-    <div>
+    <div class="reveal-left">
       <span class="section-label">Чему учим</span>
       <h2 class="section-title">Уникальные инженерные навыки</h2>
       <p class="section-sub" style="margin-bottom: 32px;">Программы курсов охватывают весь спектр современных инженерных дисциплин</p>
@@ -142,7 +154,7 @@
         <div class="skill-item"><div class="skill-dot"></div><span>Прототипирование и 3D-печать</span></div>
       </div>
     </div>
-    <div class="skills-highlight">
+    <div class="skills-highlight reveal">
       <h3>Концепт пространства</h3>
       <p>Смесь творческой лаборатории, учебного класса и мастерской. Свобода действий и необходимость знаний — идеальная среда для роста будущего инженера.</p>
       <div class="highlight-tags">
@@ -155,9 +167,9 @@
         <span class="tag">CAD/CAM</span>
         <span class="tag">Прототипы</span>
       </div>
-      <div style="margin-top:36px;padding-top:28px;border-top:1px solid rgba(255,255,255,.08)">
-        <p style="font-size:.85rem;color:var(--gray);margin-bottom:8px">Работаем с понедельника по пятницу</p>
-        <p style="font-weight:700;color:var(--white);margin-bottom:0">Все занятия <span style="color:#6ea8ff">бесплатны</span> для школьников и студентов</p>
+      <div class="skills-footer">
+        <p>Работаем с понедельника по пятницу</p>
+        <strong>Все занятия <span>бесплатны</span> для школьников и студентов</strong>
       </div>
     </div>
   </div>
@@ -165,10 +177,10 @@
 
 <!-- ─── HOME COURSES PREVIEW ─── -->
 <section id="home-courses">
-  <div class="section-header">
+  <div class="section-header reveal">
     <span class="section-label">Обучение</span>
     <h2 class="section-title">Наши курсы</h2>
-    <p class="section-sub">Программы для всех уровней подготовки — от школьника до студента</p>
+    <p class="section-sub">Авторские программы для школьников и студентов — от программирования до ЧПУ</p>
   </div>
   <div class="courses-grid" id="home-courses-grid">
     <div class="empty-state" style="grid-column:1/-1">
@@ -184,7 +196,7 @@
 
 <!-- ─── HOME NEWS PREVIEW ─── -->
 <section id="home-news">
-  <div class="section-header">
+  <div class="section-header reveal">
     <span class="section-label">Последние события</span>
     <h2 class="section-title">Новости ЦМИТ</h2>
     <p class="section-sub">Следите за жизнью центра и достижениями участников</p>
@@ -203,7 +215,7 @@
 
 <!-- ─── CTA ─── -->
 <section id="cta">
-  <div class="cta-box">
+  <div class="cta-box reveal">
     <h2>Хочешь целевое направление в СГТУ?</h2>
     <p>Ты ученик 11 класса, любишь математику, конструирование, электронику или программирование?<br/>Приходи в ЦМИТ — мы покажем путь от школы до гарантированного трудоустройства.</p>
     <a href="#contact" class="btn-primary">📍 Узнать адрес и прийти к нам</a>
@@ -212,23 +224,23 @@
 
 <!-- ─── CONTACT ─── -->
 <section id="contact">
-  <div class="section-header">
+  <div class="section-header reveal">
     <span class="section-label">Контакты</span>
     <h2 class="section-title">Свяжитесь с нами</h2>
     <p class="section-sub">Мы всегда рады новым участникам и вопросам</p>
   </div>
   <div class="contact-grid">
-    <div class="contact-card">
+    <div class="contact-card reveal">
       <div class="icon">📞</div>
       <h4>Телефон</h4>
       <a href="tel:+79372525642">+7 937 252 5642</a>
     </div>
-    <div class="contact-card">
+    <div class="contact-card reveal">
       <div class="icon">✉️</div>
       <h4>Email</h4>
       <a href="mailto:borisova.vv@zaprib.ru">borisova.vv@zaprib.ru</a>
     </div>
-    <div class="contact-card">
+    <div class="contact-card reveal">
       <div class="icon">📍</div>
       <h4>Адрес</h4>
       <p>г. Саратов, ул. Большая Садовая, д. 239<br/>Территория СЭЗ им. Серго Орджоникидзе</p>
