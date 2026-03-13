@@ -30,11 +30,14 @@ function uid() {
 }
 
 (async () => {
-  const existing = await users.findOne({ username: process.env.ADMIN_USERNAME });
+  const adminUser = process.env.ADMIN_USERNAME || 'admin';
+  const adminPass = process.env.ADMIN_PASSWORD || 'cmit2026';
+
+  const existing = await users.findOne({ username: adminUser });
   if (!existing) {
     await users.insert({
-      username: process.env.ADMIN_USERNAME,
-      password: bcrypt.hashSync(process.env.ADMIN_PASSWORD, 10)
+      username: adminUser,
+      password: bcrypt.hashSync(adminPass, 10)
     });
   }
 

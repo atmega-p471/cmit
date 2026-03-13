@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
     return res.status(401).json({ error: 'Unauthorized' });
   }
   try {
-    req.user = jwt.verify(header.slice(7), process.env.JWT_SECRET);
+    req.user = jwt.verify(header.slice(7), process.env.JWT_SECRET || 'cmit_fallback_secret_change_me');
     next();
   } catch {
     res.status(401).json({ error: 'Invalid token' });
